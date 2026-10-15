@@ -43,7 +43,7 @@ namespace AssetAvailabilityFunction
         // 4. The HTTP Trigger with a custom RESTful route
         [Function("GetAssetAvailability")]
         public IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "assets/{id}/availability")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "assets/{id}/availability")] HttpRequest req,
             string id) // The '{id}' from the route is automatically bound here
         {
             _logger.LogInformation($"Received availability request for asset: {id}");
